@@ -26,3 +26,8 @@ composer lint
 package-name
 PackageName
 ```
+#### Update Vendor Name
+```shell script
+bayareawebpro
+BayAreaWebPro
+```

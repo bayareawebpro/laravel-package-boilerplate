@@ -1,10 +1,7 @@
 {
     "name": "bayareawebpro/package-name",
-    "description": "Searchable Resource Builder for Laravel",
-    "keywords": [
-        "bayareawebpro",
-        "laravel"
-    ],
+    "description": "PackageName for Laravel",
+    "keywords": ["bayareawebpro", "laravel"],
     "homepage": "https://github.com/bayareawebpro/package-name",
     "license": "MIT",
     "type": "library",
