@@ -23,12 +23,15 @@ class ProviderTest extends TestCase
             $this->app->make('package-name'), 'Container can make instance of service.');
     }
 
-    public function test_facade_can_resolve_instance()
+    public function test_alias_can_resolve_instance()
     {
         $this->assertInstanceOf(
             PackageNameService::class,
             \PackageName::getFacadeRoot(), 'Alias class can make instance of service.');
+    }
 
+    public function test_facade_can_resolve_instance()
+    {
         $this->assertInstanceOf(
             PackageNameService::class,
             PackageName::getFacadeRoot(), 'Facade can make instance of service.');
