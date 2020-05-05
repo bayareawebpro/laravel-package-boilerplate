@@ -28,10 +28,10 @@ jobs:
       - name: Composer Dependencies
         run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: Lint
-        run: php vendor/bin/phpstan analyse
+        run: composer lint
       - name: Unit Tests
-        run: php vendor/bin/phpunit
-      - name: Codecov
-        uses: codecov/codecov-action@v1.0.5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+        run: composer test
+      #- name: Codecov
+      #  uses: codecov/codecov-action@v1.0.5
+      #  with:
+      #    token: ${{ secrets.CODECOV_TOKEN }}
