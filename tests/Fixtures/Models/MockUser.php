@@ -15,9 +15,5 @@ class MockUser extends Model
         'remember_token',
         'email_verified_at',
     ];
-
-    public function getTestAttribute(){
-        return true;
-    }
 }
 
