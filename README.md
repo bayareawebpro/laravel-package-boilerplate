@@ -31,3 +31,11 @@ PackageName
 bayareawebpro
 BayAreaWebPro
 ```
+
+#### CodeCov
+
+Add token to Github repo: 
+
+```shell script
+CODECOV_TOKEN
+```
