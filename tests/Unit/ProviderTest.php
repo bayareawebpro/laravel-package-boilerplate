@@ -16,6 +16,15 @@ class ProviderTest extends TestCase
             $this->app->getProvider(PackageNameServiceProvider::class), 'Provider is registered with container.');
     }
 
+    public function test_provider_declares_provided()
+    {
+        $this->assertTrue(in_array('package-name',
+                collect(app()->getProviders(PackageNameServiceProvider::class))
+                ->first()
+                ->provides()
+        ));
+    }
+
     public function test_container_can_resolve_instance()
     {
         $this->assertInstanceOf(
@@ -35,14 +44,5 @@ class ProviderTest extends TestCase
         $this->assertInstanceOf(
             PackageNameService::class,
             PackageName::getFacadeRoot(), 'Facade can make instance of service.');
-    }
-
-    public function test_declares_provided()
-    {
-        $this->assertTrue(in_array('package-name',
-                collect(app()->getProviders(PackageNameServiceProvider::class))
-                ->first()
-                ->provides()
-        ));
     }
 }
