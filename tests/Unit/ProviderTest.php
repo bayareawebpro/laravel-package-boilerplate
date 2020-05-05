@@ -13,7 +13,9 @@ class ProviderTest extends TestCase
     {
         $this->assertInstanceOf(
             PackageNameServiceProvider::class,
-            $this->app->getProvider(PackageNameServiceProvider::class), 'Provider is registered with container.');
+            $this->app->getProvider(PackageNameServiceProvider::class),
+            'Provider is registered with container.'
+        );
     }
 
     public function test_provider_declares_provided()
@@ -29,20 +31,26 @@ class ProviderTest extends TestCase
     {
         $this->assertInstanceOf(
             PackageNameService::class,
-            $this->app->make('package-name'), 'Container can make instance of service.');
+            $this->app->make('package-name'),
+            'Container can make instance of service.'
+        );
     }
 
     public function test_alias_can_resolve_instance()
     {
         $this->assertInstanceOf(
             PackageNameService::class,
-            \PackageName::getFacadeRoot(), 'Alias class can make instance of service.');
+            \PackageName::getFacadeRoot(),
+            'Alias class can make instance of service.'
+        );
     }
 
     public function test_facade_can_resolve_instance()
     {
         $this->assertInstanceOf(
             PackageNameService::class,
-            PackageName::getFacadeRoot(), 'Facade can make instance of service.');
+            PackageName::getFacadeRoot(),
+            'Facade can make instance of service.'
+        );
     }
 }
