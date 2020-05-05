@@ -34,12 +34,6 @@ class ProviderTest extends TestCase
             PackageName::getFacadeRoot(), 'Facade can make instance of service.');
     }
 
-    public function test_service_can_be_resolved()
-    {
-        $instance = app('package-name');
-        $this->assertTrue($instance instanceof PackageNameService);
-    }
-
     public function test_declares_provided()
     {
         $this->assertTrue(in_array('package-name',
