@@ -22,7 +22,7 @@ class ProviderTest extends TestCase
                 collect(app()->getProviders(PackageNameServiceProvider::class))
                 ->first()
                 ->provides()
-        ));
+        ), 'Provider declares provided services.');
     }
 
     public function test_container_can_resolve_instance()
