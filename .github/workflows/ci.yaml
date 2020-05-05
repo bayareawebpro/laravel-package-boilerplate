@@ -28,9 +28,9 @@ jobs:
       - name: Composer Dependencies
         run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: Lint
-        run: composer lint
+        run: php vendor/bin/phpstan analyse
       - name: Unit Tests
-        run: composer test
+        run: php vendor/bin/phpunit
       - name: Codecov
         uses: codecov/codecov-action@v1.0.5
         with:
