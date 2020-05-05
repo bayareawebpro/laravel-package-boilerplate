@@ -11,21 +11,21 @@ class PackageNameServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //$this->loadTranslationsFrom(__DIR__.'/../lang', 'package-name');
 
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'package-name');
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'package-name');
 
         if ($this->app->runningInConsole()) {
 
-            $this->commands([]);
+            //$this->commands([]);
 
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('package-name.php'),
             ], 'config');
 
-            $this->publishes([
-                __DIR__.'/../lang' => resource_path('lang/vendor/package-name'),
-            ], 'lang');
+            //$this->publishes([
+            //    __DIR__.'/../lang' => resource_path('lang/vendor/package-name'),
+            //], 'lang');
         }
     }
 
@@ -34,7 +34,7 @@ class PackageNameServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('package-name', PackageName::class);
+        $this->app->bind('package-name', PackageNameService::class);
     }
 
     /**
