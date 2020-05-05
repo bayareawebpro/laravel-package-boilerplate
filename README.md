@@ -21,21 +21,31 @@ composer lint
 
 ---
 
-#### Update NameSpace & Slug
-```shell script
-package-name
-PackageName
-```
-#### Update Vendor Name
-```shell script
-bayareawebpro
-BayAreaWebPro
-```
-
 #### CodeCov
 
 Add token to Github repo: 
 
 ```shell script
 CODECOV_TOKEN
+```
+
+---
+
+
+#### Update Package Name
+```shell script
+PackageName
+package-name
+```
+
+#### Update Vendor Name
+```shell script
+BayAreaWebPro
+bayareawebpro
+```
+
+#### Update Author Name
+```shell script
+Dan Alvidrez
+dan@bayareawebpro.com
 ```
