@@ -1,19 +1,31 @@
-<?php
-/**
- * @var Factory $factory
- */
+<?php namespace Database\Factories;
 
-use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
-use BayAreaWebPro\PackageName\Tests\Fixtures\Models\MockUser;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-$factory->define(MockUser::class, function (Faker $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => Str::random(15),
-        'remember_token' => Str::random(10),
-        'email_verified_at' => now(),
-    ];
-});
+class UserFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = User::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'name' => $this->faker->name,
+            'email' => $this->faker->unique()->safeEmail,
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ];
+    }
+}
