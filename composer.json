@@ -1,7 +1,10 @@
 {
     "name": "bayareawebpro/package-name",
     "description": "PackageName for Laravel",
-    "keywords": ["bayareawebpro", "laravel"],
+    "keywords": [
+        "bayareawebpro",
+        "laravel"
+    ],
     "homepage": "https://github.com/bayareawebpro/package-name",
     "license": "MIT",
     "type": "library",
@@ -13,14 +16,13 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/support": "^6.0|^7.0|^8.0"
+        "php": "^8.4",
+        "illuminate/support": "^12.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0|^5.0|^6.0",
-        "nunomaduro/larastan": "^0.6",
-        "phpunit/phpunit": "^8.0|^9.0",
-        "laravel/legacy-factories": "^1.0"
+        "orchestra/testbench": "^10.0",
+        "larastan/larastan": "^3.0",
+        "phpunit/phpunit": "^11.0"
     },
     "autoload": {
         "psr-4": {
@@ -29,12 +31,27 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "BayAreaWebPro\\PackageName\\Tests\\": "tests"
+            "BayAreaWebPro\\PackageName\\Tests\\": "tests",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
-        "lint": "vendor/bin/phpstan analyse"
+        "lint": "vendor/bin/phpstan analyse",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve --ansi"
+        ]
     },
     "config": {
         "sort-packages": true

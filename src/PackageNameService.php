@@ -13,7 +13,6 @@ class PackageNameService
 
     /**
      * PackageNameService constructor.
-     * @param Config $config
      */
     public function __construct(Config $config)
     {
@@ -22,9 +21,8 @@ class PackageNameService
 
     /**
      * Make PackageNameService.
-     * @return self
      */
-    public static function make(): self
+    public static function make(): static
     {
         return app(static::class);
     }

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace BayAreaWebPro\PackageName\Tests\Unit;
+namespace BayAreaWebPro\PackageName\Tests\Feature;
 
 use BayAreaWebPro\PackageName\PackageName;
 use BayAreaWebPro\PackageName\PackageNameService;
@@ -9,7 +9,8 @@ use BayAreaWebPro\PackageName\Tests\TestCase;
 
 class ProviderTest extends TestCase
 {
-    public function test_provider_is_registered()
+    /** @noinspection PhpParamsInspection */
+    public function test_provider_is_registered(): void
     {
         $this->assertInstanceOf(
             PackageNameServiceProvider::class,
@@ -18,16 +19,15 @@ class ProviderTest extends TestCase
         );
     }
 
-    public function test_provider_declares_provided()
+    /** @noinspection PhpParamsInspection */
+    public function test_provider_declares_provided(): void
     {
-        $this->assertTrue(in_array('package-name',
-                collect(app()->getProviders(PackageNameServiceProvider::class))
-                ->first()
-                ->provides()
-        ), 'Provider declares provided services.');
+        $provider = $this->app->getProvider(PackageNameServiceProvider::class);
+
+        $this->assertTrue(in_array('package-name', $provider->provides()), 'Provider declares provided services.');
     }
 
-    public function test_container_can_resolve_instance()
+    public function test_container_can_resolve_instance(): void
     {
         $this->assertInstanceOf(
             PackageNameService::class,
@@ -36,7 +36,7 @@ class ProviderTest extends TestCase
         );
     }
 
-    public function test_alias_can_resolve_instance()
+    public function test_alias_can_resolve_instance(): void
     {
         $this->assertInstanceOf(
             PackageNameService::class,
@@ -45,7 +45,7 @@ class ProviderTest extends TestCase
         );
     }
 
-    public function test_facade_can_resolve_instance()
+    public function test_facade_can_resolve_instance(): void
     {
         $this->assertInstanceOf(
             PackageNameService::class,

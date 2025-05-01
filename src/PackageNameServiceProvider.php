@@ -9,7 +9,7 @@ class PackageNameServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot(): void
     {
         //$this->loadTranslationsFrom(__DIR__.'/../lang', 'package-name');
 
@@ -32,16 +32,16 @@ class PackageNameServiceProvider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register()
+    public function register(): void
     {
         $this->app->bind('package-name', PackageNameService::class);
     }
 
     /**
      * Get the services provided by the provider.
-     * @return array
+     * @return array<int, string>
      */
-    public function provides()
+    public function provides(): array
     {
         return [
             'package-name'

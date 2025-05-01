@@ -1,8 +1,8 @@
 .idea
-build
 composer.lock
+.phpunit.result.cache
+build
 docs
 vendor
 coverage
-.phpunit.result.cache
-/clover.xml
+/.phpunit.cache
