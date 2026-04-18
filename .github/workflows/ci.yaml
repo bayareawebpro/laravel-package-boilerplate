@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [ 8.3, 8.4, 8.5 ]
+        php: [ 8.4, 8.5 ]
 
     name: PHP ${{ matrix.php }}
 
@@ -44,7 +44,7 @@ jobs:
           key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
 
       - name: Composer Dependencies
-        run: composer install --prefer-dist --no-interaction --no-progress --no-suggest --no-scripts
+        run: composer install --prefer-dist --no-interaction --no-progress --no-scripts
 
       - name: Execute Lint
         run: composer lint
