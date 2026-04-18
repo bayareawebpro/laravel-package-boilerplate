@@ -1,7 +1,7 @@
 laravel: '@testbench'
 
 providers:
-  # - Workbench\App\Providers\WorkbenchServiceProvider
+  - Workbench\App\Providers\WorkbenchServiceProvider
 
 migrations:
   - workbench/database/migrations
@@ -25,9 +25,12 @@ workbench:
     - create-sqlite-db
     - db-wipe
     - migrate-fresh
+    - package-name:install
   assets:
     - laravel-assets
   sync:
     - from: storage
       to: workbench/storage
+    - from: public
+      to: workbench/public
       reverse: true

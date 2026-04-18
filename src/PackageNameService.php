@@ -3,27 +3,19 @@
 namespace BayAreaWebPro\PackageName;
 
 use Illuminate\Contracts\Config\Repository as Config;
+use Illuminate\Support\Facades\App;
 
 class PackageNameService
 {
-    /**
-     * Config Repository.
-     */
-    protected Config $config;
 
-    /**
-     * PackageNameService constructor.
-     */
-    public function __construct(Config $config)
+    public function __construct(protected Config $config)
     {
-        $this->config = $config;
+        //
     }
 
-    /**
-     * Make PackageNameService.
-     */
+
     public static function make(): static
     {
-        return app(static::class);
+        return App::make(static::class);
     }
 }

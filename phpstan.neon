@@ -1,10 +1,10 @@
 includes:
     - vendor/larastan/larastan/extension.neon
 parameters:
-    level: 5
+    level: 10
     paths:
         - src
     ignoreErrors:
         -
-            message: '#Called env outside of the config#'
-            path: config/config.php
+            message: '#Method .+make.+ should return static.+ but returns mixed#'
+            path: src/PackageNameService.php

@@ -17,12 +17,12 @@
     ],
     "require": {
         "php": "^8.3",
-        "illuminate/support": "^12.0"
+        "illuminate/support": "^13.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^10.0",
+        "orchestra/testbench": "^11.0",
         "larastan/larastan": "^3.0",
-        "phpunit/phpunit": "^11.0"
+        "phpunit/phpunit": "^13.0"
     },
     "autoload": {
         "psr-4": {
@@ -32,13 +32,14 @@
     "autoload-dev": {
         "psr-4": {
             "BayAreaWebPro\\PackageName\\Tests\\": "tests",
+            "BayAreaWebPro\\PackageName\\Database\\Seeders\\": "database/seeders",
             "Workbench\\App\\": "workbench/app/",
             "Workbench\\Database\\Factories\\": "workbench/database/factories/",
             "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit",
+        "test": "XDEBUG_MODE=coverage vendor/bin/phpunit",
         "lint": "vendor/bin/phpstan analyse",
         "post-autoload-dump": [
             "@clear",

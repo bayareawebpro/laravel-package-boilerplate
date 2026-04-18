@@ -2,7 +2,10 @@
 composer.lock
 .phpunit.result.cache
 build
-docs
-vendor
-coverage
-/.phpunit.cache
+/vendor
+/node_modules
+package-lock.json
+composer-lock.json
+workbench/storage
+.phpunit.cache/test-results
+workbench/public

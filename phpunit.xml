@@ -1,43 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.3/phpunit.xsd"
-    cacheDirectory=".phpunit.cache"
-    bootstrap="vendor/autoload.php"
-    displayDetailsOnTestsThatTriggerWarnings="true"
-    backupStaticProperties="false"
-    processIsolation="true"
-    backupGlobals="false"
-    stopOnFailure="true"
-    colors="true">
-    <!--    <coverage includeUncoveredFiles="false">-->
-    <!--        <report>-->
-    <!--            <clover outputFile="build/clover.xml"/>-->
-    <!--        </report>-->
-    <!--    </coverage>-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
     <testsuites>
+        <testsuite name="Package">
+            <directory suffix="Test.php">./tests/Package</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite>
         <testsuite name="Unit">
-            <directory suffix="Test.php">./tests</directory>
+            <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
     </testsuites>
-    <logging>
-        <junit outputFile="build/report.junit.xml"/>
-    </logging>
-    <php>
-        <env name="APP_URL" value="http://test.test/"/>
-        <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsm1"/>
-        <env name="APP_ENV" value="testing"/>
-        <env name="APP_DEBUG" value="true"/>
-        <env name="APP_URL" value="http://localhost"/>
-        <env name="CMS_CACHE" value="0"/>
-        <env name="DB_CONNECTION" value="sqlite"/>
-        <env name="DB_DATABASE" value=":memory:"/>
-        <env name="DB_USERNAME" value="root"/>
-        <env name="REDIS_CLIENT" value="predis"/>
-    </php>
     <source>
         <include>
-            <directory suffix=".php">src/</directory>
+            <directory>app</directory>
         </include>
     </source>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_KEY" value="base64:Zds82P5Pn6immm6jE0mJ13dE6pOBq6jMltw11rFWBmE="/>
+    </php>
 </phpunit>

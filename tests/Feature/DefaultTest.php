@@ -9,8 +9,7 @@ class DefaultTest extends TestCase
 {
     public function test_default(): void
     {
-        dump(User::factory()->create());
-
-        $this->assertDatabaseHas('users');
+        $user = User::factory()->create();
+        $this->assertDatabaseHas('users', $user->only(['id']));
     }
 }

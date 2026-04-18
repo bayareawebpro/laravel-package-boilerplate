@@ -4,7 +4,8 @@ namespace BayAreaWebPro\PackageName\Tests;
 
 use BayAreaWebPro\PackageName\PackageName;
 use BayAreaWebPro\PackageName\PackageNameServiceProvider;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use Orchestra\Testbench\Concerns\WithWorkbench;
 use PHPUnit\TextUI\Application;
 use function Orchestra\Testbench\workbench_path;
 use Orchestra\Testbench\Attributes\WithMigration;
@@ -12,7 +13,9 @@ use Orchestra\Testbench\Attributes\WithMigration;
 #[WithMigration]
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-    use RefreshDatabase;
+    use WithWorkbench;
+    use LazilyRefreshDatabase;
+
     /**
      * Load package service provider
      * @param Application $app
@@ -39,11 +42,21 @@ class TestCase extends \Orchestra\Testbench\TestCase
      * Define database migrations.
      * @return void
      */
-    protected function defineDatabaseMigrations()
+    protected function defineDatabaseMigrations():void
     {
         $this->loadMigrationsFrom(
             workbench_path('database/migrations')
         );
+    }
+
+    /**
+     * Define environment.
+     * @param $app
+     * @return void
+     */
+    protected function defineEnvironment($app):void
+    {
+        $app['config']->set('database.default', 'testing');
     }
 
     /**

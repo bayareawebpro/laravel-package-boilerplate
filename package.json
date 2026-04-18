@@ -1,0 +1,20 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite --config=vite.config.js --mode=default",
+        "prod": "vite --config=vite.config.js --mode=default build",
+        "preview": "vite --config=vite.config.js --mode=default preview"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.2.2",
+        "@vitejs/plugin-vue": "6.0.6",
+        "autoprefixer": "10.5.0",
+        "laravel-vite-plugin": "3.0.1",
+        "prettier": "3.8.3",
+        "prettier-plugin-tailwindcss": "0.7.2",
+        "tailwindcss": "4.2.2",
+        "vite": "^8.0.8",
+        "vue": "^3.5.32",
+        "vue-loader": "17.4.2"
+    }
+}

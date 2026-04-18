@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace BayAreaWebPro\PackageName\Tests\Feature;
+namespace BayAreaWebPro\PackageName\Tests\Package;
 
 use BayAreaWebPro\PackageName\PackageName;
 use BayAreaWebPro\PackageName\PackageNameService;
@@ -9,7 +9,6 @@ use BayAreaWebPro\PackageName\Tests\TestCase;
 
 class ProviderTest extends TestCase
 {
-    /** @noinspection PhpParamsInspection */
     public function test_provider_is_registered(): void
     {
         $this->assertInstanceOf(
@@ -19,7 +18,6 @@ class ProviderTest extends TestCase
         );
     }
 
-    /** @noinspection PhpParamsInspection */
     public function test_provider_declares_provided(): void
     {
         $provider = $this->app->getProvider(PackageNameServiceProvider::class);

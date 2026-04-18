@@ -5,8 +5,7 @@ namespace BayAreaWebPro\PackageName;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \BayAreaWebPro\PackageName\PackageNameService
- * @method static PackageNameService make()
+ * @mixin \BayAreaWebPro\PackageName\PackageNameService
  */
 class PackageName extends Facade
 {
