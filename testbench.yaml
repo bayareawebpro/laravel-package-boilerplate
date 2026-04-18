@@ -1,3 +1,4 @@
+# https://packages.tools/getting-started/configuration.html
 laravel: '@testbench'
 
 providers:
@@ -12,13 +13,18 @@ seeders:
 workbench:
   start: '/'
   install: true
+  welcome: false
   health: false
+  auth: true
+  #user: test@example.com
+  #guard: web
   discovers:
     web: true
     api: true
+    config: false
+    factories: true
     commands: true
     components: false
-    factories: true
     views: false
   build:
     - asset-publish

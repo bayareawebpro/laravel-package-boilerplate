@@ -4,6 +4,7 @@ namespace Workbench\Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Workbench\Database\Factories\UserFactory;
 
 class DatabaseSeeder extends Seeder
@@ -16,8 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         UserFactory::new()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name'     => 'Test User',
+            'email'    => 'test@example.com',
+            'password' => Hash::make('test@example.com'),
         ]);
     }
 }

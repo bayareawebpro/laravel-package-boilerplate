@@ -1,9 +1,9 @@
 {
     "private": true,
     "scripts": {
-        "dev": "vite --config=vite.config.js --mode=default",
-        "prod": "vite --config=vite.config.js --mode=default build",
-        "preview": "vite --config=vite.config.js --mode=default preview"
+        "dev": "vite --config=vite.config.js --mode=vite",
+        "prod": "vite --config=vite.config.js --mode=vite build",
+        "preview": "vite --config=vite.config.js --mode=vite preview"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.2.2",

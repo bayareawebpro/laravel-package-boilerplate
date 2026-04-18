@@ -5,10 +5,10 @@ namespace BayAreaWebPro\PackageName\Tests;
 use BayAreaWebPro\PackageName\PackageName;
 use BayAreaWebPro\PackageName\PackageNameServiceProvider;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use Orchestra\Testbench\Attributes\WithMigration;
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use PHPUnit\TextUI\Application;
 use function Orchestra\Testbench\workbench_path;
-use Orchestra\Testbench\Attributes\WithMigration;
 
 #[WithMigration]
 class TestCase extends \Orchestra\Testbench\TestCase
@@ -21,7 +21,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
      * @param Application $app
      * @return array<int, string>
      */
-    protected function getPackageProviders($app):array
+    protected function getPackageProviders($app): array
     {
         return [PackageNameServiceProvider::class];
     }
@@ -31,7 +31,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
      * @param \Illuminate\Foundation\Application $app
      * @return array<string, string>
      */
-    protected function getPackageAliases($app):array
+    protected function getPackageAliases($app): array
     {
         return [
             'PackageName' => PackageName::class,
@@ -42,7 +42,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
      * Define database migrations.
      * @return void
      */
-    protected function defineDatabaseMigrations():void
+    protected function defineDatabaseMigrations(): void
     {
         $this->loadMigrationsFrom(
             workbench_path('database/migrations')
@@ -54,9 +54,20 @@ class TestCase extends \Orchestra\Testbench\TestCase
      * @param $app
      * @return void
      */
-    protected function defineEnvironment($app):void
+    protected function defineEnvironment($app): void
     {
         $app['config']->set('database.default', 'testing');
+    }
+
+    /**
+     * Get the application timezone.
+     *
+     * @param \Illuminate\Foundation\Application $app
+     * @return string|null
+     */
+    protected function getApplicationTimezone($app): string|null
+    {
+        return 'America/Los_Angeles';
     }
 
     /**

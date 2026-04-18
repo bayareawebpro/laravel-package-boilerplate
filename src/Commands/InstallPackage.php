@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
 #[Signature('package-name:install')]
-#[Description('Command description')]
+#[Description('Run package migrations.')]
 class InstallPackage extends Command
 {
     /**
